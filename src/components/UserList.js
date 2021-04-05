@@ -12,6 +12,8 @@ export const UserList = () => {
     const { users, removeUser } = useContext(GlobalContext);    
     return (
         <ListGroup className="mt-4">
+            {users.length > 0 ? (
+                <>
             {users.map(user =>(
                 <ListGroupItem className="d-flex">
                     <strong>{user.name}</strong>
@@ -21,6 +23,10 @@ export const UserList = () => {
                     </div>
                 </ListGroupItem>
             ))}    
+                </>
+            ) : (
+                <h4 className="text-center">No User</h4>
+            )}
         </ListGroup>
         
     )
